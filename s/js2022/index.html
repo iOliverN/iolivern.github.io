@@ -56,7 +56,8 @@
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-L5X8RJDCLM"></script>
   <script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-L5X8RJDCLM');</script>
-  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+  <script src="/script.js"></script>
 </head>
 
 <body class="max-width mx-auto px3 ltr">
@@ -219,7 +220,6 @@ property to store the original error and retrieve it later:</p>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 </code></pre></div><p>**</p>
 <p><em>I’m Oliver Nguyen. I share about programming, JavaScript, and Go. I created <a href="https://onesidebar.com">OneSidebar</a> — a browser extension for navigating GitHub. Follow me for more content.</em></p>
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">New features in JavaScript 2022<br><br>A thread 🧵👇 <a href="https://t.co/zrMSfuFCUx">pic.twitter.com/zrMSfuFCUx</a></p>&mdash; Oliver Nguyen 👋 (@_OliverNguyen) <a href="https://twitter.com/_OliverNguyen/status/1570587252438474752?ref_src=twsrc%5Etfw">September 16, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
     </div>
   </article>
@@ -235,11 +235,35 @@ property to store the original error and retrieve it later:</p>
 
 
 
+
+
 <div id="header-post">
-  <a id="menu-icon" href="/w"><i class="fas fa-chevron-left fa-lg"></i> <span class="icon-text">Back</span></a>
-  <a id="menu-icon-tablet" href="/w"><i class="fas fa-chevron-left fa-lg"></i> <span class="icon-text">Back</span></a>
+  <div class="menu-icons">
+    <a id="menu-icon" href="/w"><i class="fas fa-chevron-left fa-lg"></i> <span class="icon-text">Back</span></a>
+  </div>
+
+  
+  <div id="header-toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-private-fields">1. Private fields</a></li>
+    <li><a href="#2-check-accessing-private-fields-with-in-keyword">2. Check accessing private fields with <em>in</em> keyword</a></li>
+    <li><a href="#3-at-method-for-array-and-string">3. <em>at()</em> method for array and string</a></li>
+    <li><a href="#4-find-an-item-in-an-array-from-the-end-with-findlast">4. Find an item in an array from the end with <em>findLast()</em></a></li>
+    <li><a href="#5-lets-use-hasown-instead-of-hasownproperty">5. Let&rsquo;s use <em>hasOwn()</em> instead of <em>hasOwnProperty()</em></a></li>
+    <li><a href="#6-cause-is-a-new-property-of-error">6. <em>cause</em> is a new property of error</a></li>
+    <li><a href="#7--hashbang-is-now-supported">7. <code>#!</code> Hashbang is now supported</a></li>
+  </ul>
+</nav>
+  </div>
   
 </div>
+
+
+
+
+
+  
 
 <div id="footer-post-container">
   <div id="footer-post">
@@ -252,7 +276,7 @@ property to store the original error and retrieve it later:</p>
 
     <div id="toc-footer" class="tog-footer" style="display: none">
       <script>
-        console.log('content', '\u003cnav id=\u0022TableOfContents\u0022\u003e\n  \u003cul\u003e\n    \u003cli\u003e\u003ca href=\u0022#1-private-fields\u0022\u003e1. Private fields\u003c\/a\u003e\u003c\/li\u003e\n    \u003cli\u003e\u003ca href=\u0022#2-check-accessing-private-fields-with-in-keyword\u0022\u003e2. Check accessing private fields with \u003cem\u003ein\u003c\/em\u003e keyword\u003c\/a\u003e\u003c\/li\u003e\n    \u003cli\u003e\u003ca href=\u0022#3-at-method-for-array-and-string\u0022\u003e3. \u003cem\u003eat()\u003c\/em\u003e method for array and string\u003c\/a\u003e\u003c\/li\u003e\n    \u003cli\u003e\u003ca href=\u0022#4-find-an-item-in-an-array-from-the-end-with-findlast\u0022\u003e4. Find an item in an array from the end with \u003cem\u003efindLast()\u003c\/em\u003e\u003c\/a\u003e\u003c\/li\u003e\n    \u003cli\u003e\u003ca href=\u0022#5-lets-use-hasown-instead-of-hasownproperty\u0022\u003e5. Let\u0026rsquo;s use \u003cem\u003ehasOwn()\u003c\/em\u003e instead of \u003cem\u003ehasOwnProperty()\u003c\/em\u003e\u003c\/a\u003e\u003c\/li\u003e\n    \u003cli\u003e\u003ca href=\u0022#6-cause-is-a-new-property-of-error\u0022\u003e6. \u003cem\u003ecause\u003c\/em\u003e is a new property of error\u003c\/a\u003e\u003c\/li\u003e\n    \u003cli\u003e\u003ca href=\u0022#7--hashbang-is-now-supported\u0022\u003e7. \u003ccode\u003e#!\u003c\/code\u003e Hashbang is now supported\u003c\/a\u003e\u003c\/li\u003e\n  \u003c\/ul\u003e\n\u003c\/nav\u003e')
+        
       </script>
       <div class="toc-header"><a href="#">Latest JavaScript features in 2022</a></div>
       <nav id="TableOfContents">
@@ -287,7 +311,7 @@ property to store the original error and retrieve it later:</p>
     </a>
   </li>
   <li>
-    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fiOliverNguyen.github.io%2fs%2fjs2022%2f&text=Latest%20JavaScript%20features%20in%202022">
+    <a class="icon" href="https://x.com/share?url=https%3a%2f%2fiOliverNguyen.github.io%2fs%2fjs2022%2f&text=Latest%20JavaScript%20features%20in%202022">
       <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
     </a>
   </li>
@@ -325,7 +349,7 @@ property to store the original error and retrieve it later:</p>
 
   <footer id="footer">
   <div class="footer-left">
-    Copyright  &copy; 2023 Oliver Nguyen.
+    Copyright  &copy; 2025 Oliver Nguyen.
 
 
 
